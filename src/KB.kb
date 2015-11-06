@@ -1,0 +1,70 @@
+#if box 1 is observed as W then it contains W or B
+-O1W C1W C1B
+#if box 1 is observed as Y then it contains Y or B
+-O1Y C1Y C1B
+#if box 2 is observed as Y then it contains Y or B
+-O2Y C2Y C2B
+#if box 2 is observed as W then it contains W or B
+-O2W C2W C2B
+#if box 3 is observed as Y then it contains W or B
+-O3Y C3Y C3B
+#if box 3 is observed as W then it contains W or B
+-O3W C3W C3B
+
+#Wrong Labels
+-L1W -C1W
+-L1Y -C1Y
+-L1B -C1B
+-L2W -C2W
+-L2Y -C2Y
+-L2B -C2B
+-L3W -C3W
+-L3Y -C3Y
+-L3B -C3B
+#Each box contains either one of the colors
+C1B C1W C1Y 
+C2B C2W C2Y
+C3B C3W C3Y
+#if box contains one the colors then it does not contains any other color
+-C1B -C1W
+-C1B -C1Y
+-C1W -C1Y
+-C2B -C2W 
+-C2B -C2Y
+-C2W -C2Y
+-C3B -C3W
+-C3B -C3Y
+-C3W -C3Y
+#if a box contains a color than the other boxes do not contain that color
+-C1W -C2W
+-C1W -C3W
+-C1Y -C2Y
+-C1Y -C3Y
+-C1B -C2B
+-C1B -C3B
+-C2W -C1W
+-C2W -C3W
+-C2Y -C1Y
+-C2Y -C3Y
+-C2B -C1B
+-C2B -C3B
+-C3W -C1W
+-C3W -C2W
+-C3Y -C1Y
+-C3Y -C2Y
+-C3B -C1B
+-C3B -C2B
+# Box 1 is observed as Y
+O1Y
+# Box 2 is observed as W
+O2W
+# Box 3 is observed as Y
+O3Y
+# Box 1 is labeled as W
+L1W
+# Box 2 is labeled as Y
+L2Y
+# Box 3 is labeled as B
+L3B
+# Negate the query
+-C2W
